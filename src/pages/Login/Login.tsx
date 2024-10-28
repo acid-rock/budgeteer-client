@@ -28,7 +28,7 @@ export default function Login() {
 
       if (attempt.status === "complete") {
         await setActive({ session: attempt.createdSessionId });
-        navigate("/");
+        navigate("/dashboard");
       }
     } catch (error) {
       console.error("Error logging in - ", error);

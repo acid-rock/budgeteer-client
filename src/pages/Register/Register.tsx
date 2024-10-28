@@ -50,7 +50,7 @@ export default function Register() {
       const attempt = await signUp.attemptEmailAddressVerification({ code });
       if (attempt.status === "complete") {
         await setActive({ session: attempt.createdSessionId });
-        navigate("/");
+        navigate("/dashboard");
       }
     } catch (error) {
       console.error("Error verifying code - ", error);

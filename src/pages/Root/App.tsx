@@ -1,7 +1,12 @@
-import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, useUser, UserButton } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
 
 export default function App() {
+  const { isLoaded } = useUser();
+
+  // Manage the loading state here.
+  if (!isLoaded) return null;
+
   return (
     <>
       <p>Welcome to Budgeteer!</p>
