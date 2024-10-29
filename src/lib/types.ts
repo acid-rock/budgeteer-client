@@ -3,3 +3,9 @@ export type User = {
   username?: string;
   password: string;
 };
+
+export type Account = {
+  balance: number;
+  income: number;
+  expense: number;
+};

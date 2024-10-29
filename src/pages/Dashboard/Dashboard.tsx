@@ -8,13 +8,15 @@ export default function Dashboard() {
 
   return (
     <>
-      <h1>Dashboard page.</h1>
+      <h1>Budgeteer</h1>
 
       <nav>
         <Link to="/dashboard">Dashboard</Link>
         &nbsp;
         <Link to="transactions">Transactions</Link>
       </nav>
+
+      <hr />
 
       <Outlet />
     </>
