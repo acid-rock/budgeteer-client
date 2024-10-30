@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { TransactionProps } from "../lib/props";
 import axios from "axios";
 
 const link = import.meta.env.VITE_BACKEND_URL;
 
 export default function TransactionItem(props: TransactionProps) {
+  const location = useLocation();
   const { id, type, amount, category, date, description } = props;
   return (
     <>
@@ -23,7 +24,12 @@ export default function TransactionItem(props: TransactionProps) {
       <i>{date}</i>
 
       <div>
-        <Link to="transactions/edit">Edit</Link>
+        <Link
+          to={`/dashboard/transactions/edit/${id}`}
+          state={{ from: location }}
+        >
+          Edit
+        </Link>
         &nbsp;
         <button
           onClick={async () => {

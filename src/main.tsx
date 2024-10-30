@@ -10,6 +10,8 @@ import Dashboard from "./pages/Dashboard";
 import DashboardIndex from "./pages/Dashboard/DashboardIndex";
 import Transactions from "./pages/Dashboard/Transactions";
 import Protected from "./pages/Protected";
+import Form from "./components/Form.tsx";
+import TransactionList from "./pages/Dashboard/Transactions/TransactionsList/TransactionList.tsx";
 
 // Clerk user auth
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
@@ -50,6 +52,33 @@ const router = createBrowserRouter([
             <Transactions />
           </Protected>
         ),
+        children: [
+          {
+            path: "/dashboard/transactions/",
+            element: (
+              <Protected>
+                <TransactionList />
+              </Protected>
+            ),
+          },
+          {
+            path: "/dashboard/transactions/add",
+            element: (
+              <Protected>
+                <Form mode="add" />
+              </Protected>
+            ),
+          },
+
+          {
+            path: "/dashboard/transactions/edit/:id",
+            element: (
+              <Protected>
+                <Form mode="edit" />
+              </Protected>
+            ),
+          },
+        ],
       },
     ],
   },

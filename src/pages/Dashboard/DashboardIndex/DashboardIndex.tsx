@@ -3,11 +3,13 @@ import useTransactions from "../../../hooks/useTransactions";
 import { TransactionProps } from "../../../lib/props";
 import TransactionItem from "../../../components/TransactionItem";
 import useAccount from "../../../hooks/useAccount";
+import { Link, useLocation } from "react-router-dom";
 
 export default function DashboardIndex() {
   const { isLoaded, user } = useUser();
   const transactions = useTransactions("recent", user?.id);
   const account = useAccount(transactions);
+  const location = useLocation();
 
   if (!isLoaded) return null;
 
@@ -21,14 +23,24 @@ export default function DashboardIndex() {
 
       <hr />
 
-      <h2>Most recent transactions</h2>
+      <div>
+        <h2>Most recent transactions</h2>
+        <Link to="transactions/add" state={{ from: location }}>
+          Add new transaction...
+        </Link>
+      </div>
 
       {transactions.length ? (
         transactions.map((transaction: TransactionProps) => (
           <TransactionItem key={transaction.id} {...transaction} />
         ))
       ) : (
-        <>No transactions yet</>
+        <>
+          <p>No transactions yet</p>
+          <Link to="add" state={{ from: location }}>
+            Add new transaction...
+          </Link>
+        </>
       )}
     </>
   );
