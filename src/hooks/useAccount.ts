@@ -31,8 +31,5 @@ export default function useAccount(transactions: TransactionProps[]) {
 
     calculateAccount();
   }, [transactions]);
-
-  console.log(account);
-
   return account;
 }

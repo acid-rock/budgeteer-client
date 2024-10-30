@@ -34,9 +34,6 @@ export default function TransactionItem(props: TransactionProps) {
           Delete
         </button>
       </div>
-
-      <hr />
-      <br />
     </>
   );
 }
