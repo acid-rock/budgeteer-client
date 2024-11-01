@@ -32,9 +32,11 @@ export default function Dashboard() {
       <h1>Budgeteer</h1>
 
       <nav>
-        <Link to="/dashboard">Dashboard</Link>
+        <Link to="/dashboard">Home</Link>
         &nbsp;
         <Link to="transactions">Transactions</Link>
+        &nbsp;
+        <Link to="overview">Overview</Link>
       </nav>
 
       <hr />

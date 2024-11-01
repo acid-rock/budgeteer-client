@@ -94,6 +94,7 @@ export default function Form(props: FormProps) {
           />
         </div>
         <div>
+          {/* TODO: Ensure that user cannot put future dates. */}
           <label>Date: </label>
           <input
             type="datetime-local"
